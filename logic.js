@@ -3,7 +3,7 @@ var RssFeed = {};
 RssFeed.start = function() {
     RssFeed.loadFeedOptions();
     RssFeed.bindActions();
-    RssFeed.getFeed(RssFeed.currentFeed);
+    RssFeed.getFeed();
 }
 
 RssFeed.loadFeedOptions = function() {
