@@ -1,12 +1,24 @@
-from bottle import run, route, static_file
+from bottle import run, route, static_file, request
 import feedparser
 import json
+
+feed_options = {
+    "VideoGamer": 'https://www.videogamer.com/rss/allupdates.xml',
+    "HowToGeek": 'https://feeds.howtogeek.com/HowToGeek',
+    "Wired": "http://feeds.wired.com/wired/index"
+}
+
+
+@route('/get_feed_options', method="GET")
+def get_feed_options():
+    return json.dumps(feed_options)
 
 
 @route('/get_feed', method="GET")
 def get_feed_dict():
-    feed = feedparser.parse("https://www.videogamer.com/rss/allupdates.xml")
-    title = feed["feed"]["title"]
+    current_feed = request.query["feed"]
+    feed = feedparser.parse(feed_options[current_feed])
+    title = current_feed
     link = feed["feed"]["link"]
     info = {
         "title": title,
