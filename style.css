@@ -1,0 +1,28 @@
+body {
+    background-color: lightblue;
+    font-family: Consolas, 'Courier New', monospace;
+    text-align:center;
+}
+
+h1 {
+    text-shadow:2px 2px 2px blue;
+    font-size:40px;
+}
+
+button {
+    padding:10px 20px;
+    border-radius: 5px;
+}
+
+ul {
+    text-align:left;
+}
+
+li {
+    margin: 10px;
+}
+
+img {
+    height:300px;
+    margin:auto;
+}
